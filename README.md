@@ -2,9 +2,14 @@
 
 Statische, DSGVO-freundliche Vergleichsseite für Kaffee-Equipment: Vollautomaten, Siebträger, Filtermaschinen, Mühlen, Handfilter, Milchaufschäumer, Bohnen und Zubehör.
 
-- **Kein Build-Schritt, keine Abhängigkeiten.** Einfach `index.html` öffnen oder den Ordner auf einen beliebigen Webspace / GitHub Pages / Netlify hochladen.
+- **Kein Build-Schritt, keine Abhängigkeiten.** Lokal mit `python3 -m http.server` starten (beim Öffnen per Doppelklick blockiert der Browser die Schriften) oder den Ordner auf einen beliebigen Webspace / GitHub Pages / Netlify hochladen.
 - **Keine externen Ressourcen** (keine Google Fonts, kein CDN). Das vermeidet Datenübermittlungen an Dritte schon beim Seitenaufruf.
-- **Funktionen:** Kategorie-Tabs, Suche, Preisfilter, Sortierung, Vergleich von bis zu 4 Produkten nebeneinander, Ratgeber/FAQ, Dunkelmodus, mobil optimiert, per Tastatur bedienbar.
+- **Interaktiv:**
+  - **Kaffee-Finder** – 4 Fragen → passende Zubereitungsart + Top-Produkte im Budget + passende Ergänzung
+  - **Großer Vergleich** – 8 Kategorien, Suche, Preisfilter, Sortierung, Vergleich von bis zu 4 Produkten nebeneinander
+  - **Brührechner** – 6 Methoden (Espresso, V60, French Press, AeroPress, Chemex, Cold Brew), Menge & Stärke, Schritt-für-Schritt-Timer
+  - **Röstgrad-Explorer**, Ratgeber, FAQ
+- **Design:** editorialer Look mit Fraunces/Inter (lokal gehostet, OFL-Lizenz), eigene Line-Art-Illustrationen (keine Fremdbilder), automatischer Dunkelmodus, mobil optimiert, per Tastatur bedienbar, respektiert „reduzierte Bewegung“.
 
 ## Struktur
 
@@ -20,6 +25,10 @@ Statische, DSGVO-freundliche Vergleichsseite für Kaffee-Equipment: Vollautomate
 | `data/products.js` | **Produktdatenbank** |
 | `assets/js/app.js` | Vergleichslogik |
 | `assets/js/consent.js` | Cookie-/Einwilligungsbanner |
+| `assets/js/finder.js` | Kaffee-Finder (Fragen & Entscheidungslogik) |
+| `assets/js/site.js` | Navigation, Brührechner + Timer, Röstgrad-Explorer, Animationen |
+| `assets/js/icons.js` | Eigene SVG-Illustrationen |
+| `assets/fonts/` | Lokal gehostete Schriften + Lizenzen |
 
 ## Vor dem Livegang – Checkliste
 
@@ -30,8 +39,9 @@ Statische, DSGVO-freundliche Vergleichsseite für Kaffee-Equipment: Vollautomate
    - `demoMode: false` erst, wenn alle Produktdaten geprüft sind.
 2. **`data/products.js`** – Alle Produkte, Preise, technischen Daten und Wertungen sind **Beispieldaten**. Jedes Produkt prüfen, Preise aktualisieren, möglichst `asin` eintragen (dann wird direkt aufs Produkt verlinkt statt auf die Suche).
 3. **Rechtstexte:** Alle gelb markierten Platzhalter `[…]` in `impressum.html`, `datenschutz.html`, `affiliate-hinweis.html`, `testverfahren.html` und `barrierefreiheit.html` ersetzen und die Betreiber-Hinweisboxen entfernen.
-4. **Ehrlichkeit bei Tests:** In `testverfahren.html` nur die Methoden stehen lassen, die wirklich angewendet werden. Nie „getestet" oder „Testsieger" schreiben, wenn nicht selbst getestet wurde (Irreführung, § 5 UWG).
-5. **Rechtliche Prüfung:** Die Texte sind sorgfältig erstellte Vorlagen, ersetzen aber **keine Rechtsberatung**. Empfehlung: von einer Fachanwältin/einem Fachanwalt prüfen lassen oder einen Rechtstext-Dienst nutzen (z. B. mit Update-Service).
+4. **Abschnitt „Wer schreibt hier?“** auf der Startseite mit eigenem, wahrem Text und optional Foto füllen – das ist der wichtigste Baustein für Authentizität. Keine erfundenen Personen oder Erfahrungen.
+5. **Ehrlichkeit bei Tests:** In `testverfahren.html` nur die Methoden stehen lassen, die wirklich angewendet werden. Nie „getestet" oder „Testsieger" schreiben, wenn nicht selbst getestet wurde (Irreführung, § 5 UWG).
+6. **Rechtliche Prüfung:** Die Texte sind sorgfältig erstellte Vorlagen, ersetzen aber **keine Rechtsberatung**. Empfehlung: von einer Fachanwältin/einem Fachanwalt prüfen lassen oder einen Rechtstext-Dienst nutzen (z. B. mit Update-Service).
 
 ## Was rechtlich bereits umgesetzt ist
 
